@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         float roll = rollDueToControl; // coupled with input
         
         // Since using new input system, need to force an incremental rotation using RotateTowards
-        Quaternion targetRotation = Quaternion.Euler(pitch, yaw, roll);
+        Quaternion targetRotation = Quaternion.Euler(pitch, yaw, roll); 
         transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, rotationScale);
     }
 
