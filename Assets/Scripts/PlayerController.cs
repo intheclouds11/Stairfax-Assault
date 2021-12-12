@@ -7,20 +7,25 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private float xControl, yControl;
-    [SerializeField] private InputAction movement;
-    [SerializeField] float xMovementScale = 20f;
-    [SerializeField] float yMovementScale = 20f;
-    [SerializeField] float positionPitchScale = -2f;
-    [SerializeField] float controlPitchScale = -10f;
-    [SerializeField] float positionYawScale = -10f;
-    [SerializeField] float controlYawScale = -10f;
-    [SerializeField] float controlRollScale = -10f;
-    [SerializeField] private float rotationScale = 1f;
-    [SerializeField] private float xMinRange = -10f;
-    [SerializeField] private float xMaxRange = 10f;
-    [SerializeField] private float yMinRange = -4f;
-    [SerializeField] private float yMaxRange = 10f;
-
+    [Header("Control Inputs")]
+    [SerializeField] InputAction movement;
+    [SerializeField] InputAction fire;
+    [Header("Control Scaling")]
+    [Tooltip("How fast ship moves side-to-side")][SerializeField] float xMovementScale = 20f;
+    [Tooltip("How fast ship moves up and down")][SerializeField] float yMovementScale = 20f;
+    [Header("Rotation Scaling")]
+    [Tooltip("Ship pitch amount based on screen position")][SerializeField] float positionPitchScale = -2f;
+    [Tooltip("Ship pitch amount based on player input")][SerializeField] float controlPitchScale = -10f;
+    [Tooltip("Ship yaw amount based on screen position")][SerializeField] float positionYawScale = -10f;
+    [Tooltip("Ship yaw amount based on player input")][SerializeField] float controlYawScale = -10f;
+    [Tooltip("Ship roll amount based on player input")][SerializeField] float controlRollScale = -10f;
+    [Tooltip("Ship rotation speed")][SerializeField] float rotationSpeed = 1f;
+    [Header("Position Clamping")]
+    [Tooltip("Min horizontal position of ship")][SerializeField] float xMinRange = -10f;
+    [Tooltip("Max horizontal position of ship")][SerializeField] float xMaxRange = 10f;
+    [Tooltip("Min vertical position of ship")][SerializeField] float yMinRange = -4f;
+    [Tooltip("Max vertical position of ship")][SerializeField] float yMaxRange = 10f;
+    [SerializeField] private ParticleSystem[] laserParticleSystems;
 
     void Start()
     {
@@ -29,18 +34,57 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         movement.Enable();
+        fire.Enable();
     }
 
     private void OnDisable()
     {
         movement.Disable();
+        fire.Disable();
     }
 
     void Update()
     {
         ProcessTranslation();
         ProcessRotation();
+        ProcessFiring();
     }
+
+    private void ProcessFiring()
+    {
+        if (Keyboard.current[Key.Space].wasPressedThisFrame)
+        {
+            ActivateLasers();
+        }
+        // else
+        // {
+        //     DeactivateLasers();
+        // }
+    }
+
+    private void ActivateLasers()
+    {
+        foreach (ParticleSystem laserParticleSystem in laserParticleSystems)
+        {
+            laserParticleSystem.Play();
+        }
+
+        // Alternative way to enable particles (particles always playing just not emitting)
+        // foreach (ParticleSystem laserParticleSystem in laserParticleSystems)
+        // {
+        //     var emissionModule = laserParticleSystem.emission;
+        //     emissionModule.enabled = toggle;
+        // }
+    }
+
+    // private void DeactivateLasers()
+    // {
+    //     foreach (ParticleSystem laserParticleSystem in laserParticleSystems)
+    //     {
+    //         laserParticleSystem.Stop();
+    //
+    //     }
+    // }
 
     void ProcessRotation()
     {
@@ -53,10 +97,10 @@ public class PlayerController : MonoBehaviour
         float pitch = pitchDueToPosition + pitchDueToControl; // coupled with position on screen and input
         float yaw = yawDueToPosition + yawDueToControl; // coupled with position on screen and input
         float roll = rollDueToControl; // coupled with input
-        
+
         // Since using new input system, need to force an incremental rotation using RotateTowards
-        Quaternion targetRotation = Quaternion.Euler(pitch, yaw, roll); 
-        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, rotationScale);
+        Quaternion targetRotation = Quaternion.Euler(pitch, yaw, roll);
+        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, rotationSpeed);
     }
 
     private void ProcessTranslation()
