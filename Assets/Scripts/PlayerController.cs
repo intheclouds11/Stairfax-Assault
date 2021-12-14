@@ -3,34 +3,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 public class PlayerController : MonoBehaviour
 {
     private float xControl, yControl;
-    [Header("Control Inputs")]
-    [SerializeField] InputAction movement;
+
+    [Header("Control Inputs")] [SerializeField]
+    InputAction movement;
+
     [SerializeField] InputAction fire;
-    [Header("Control Scaling")]
-    [Tooltip("How fast ship moves side-to-side")][SerializeField] float xMovementScale = 20f;
-    [Tooltip("How fast ship moves up and down")][SerializeField] float yMovementScale = 20f;
-    [Header("Rotation Scaling")]
-    [Tooltip("Ship pitch amount based on screen position")][SerializeField] float positionPitchScale = -2f;
-    [Tooltip("Ship pitch amount based on player input")][SerializeField] float controlPitchScale = -10f;
-    [Tooltip("Ship yaw amount based on screen position")][SerializeField] float positionYawScale = -10f;
-    [Tooltip("Ship yaw amount based on player input")][SerializeField] float controlYawScale = -10f;
-    [Tooltip("Ship roll amount based on player input")][SerializeField] float controlRollScale = -10f;
-    [Tooltip("Ship rotation speed")][SerializeField] float rotationSpeed = 1f;
-    [Header("Position Clamping")]
-    [Tooltip("Min horizontal position of ship")][SerializeField] float xMinRange = -10f;
-    [Tooltip("Max horizontal position of ship")][SerializeField] float xMaxRange = 10f;
-    [Tooltip("Min vertical position of ship")][SerializeField] float yMinRange = -4f;
-    [Tooltip("Max vertical position of ship")][SerializeField] float yMaxRange = 10f;
+
+    [Header("Control Scaling")] [Tooltip("How fast ship moves side-to-side")] [SerializeField]
+    float xMovementScale = 20f;
+
+    [Tooltip("How fast ship moves up and down")] [SerializeField]
+    float yMovementScale = 20f;
+
+    [Header("Rotation Scaling")] [Tooltip("Ship pitch amount based on screen position")] [SerializeField]
+    float positionPitchScale = -2f;
+
+    [Tooltip("Ship pitch amount based on player input")] [SerializeField]
+    float controlPitchScale = -10f;
+
+    [Tooltip("Ship yaw amount based on screen position")] [SerializeField]
+    float positionYawScale = -10f;
+
+    [Tooltip("Ship yaw amount based on player input")] [SerializeField]
+    float controlYawScale = -10f;
+
+    [Tooltip("Ship roll amount based on player input")] [SerializeField]
+    float controlRollScale = -10f;
+
+    [Tooltip("Ship rotation speed")] [SerializeField]
+    float rotationSpeed = 1f;
+
+    [Header("Position Clamping")] [Tooltip("Min horizontal position of ship")] [SerializeField]
+    float xMinRange = -10f;
+
+    [Tooltip("Max horizontal position of ship")] [SerializeField]
+    float xMaxRange = 10f;
+
+    [Tooltip("Min vertical position of ship")] [SerializeField]
+    float yMinRange = -4f;
+
+    [Tooltip("Max vertical position of ship")] [SerializeField]
+    float yMaxRange = 10f;
+
     [SerializeField] private ParticleSystem[] laserParticleSystems;
-
-    void Start()
-    {
-    }
-
+    
     private void OnEnable()
     {
         movement.Enable();
@@ -56,6 +77,7 @@ public class PlayerController : MonoBehaviour
         {
             ActivateLasers();
         }
+        
         // else
         // {
         //     DeactivateLasers();

@@ -147,8 +147,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 603466108328158077, guid: 803a2b541c754344396a80747da7a654, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 603466108328158077, guid: 803a2b541c754344396a80747da7a654, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.42000008
+      value: -1.7199993
       objectReference: {fileID: 0}
     - target: {fileID: 603466108328158077, guid: 803a2b541c754344396a80747da7a654, type: 3}
       propertyPath: m_LocalRotation.w
@@ -171,8 +175,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1582924247164111363, guid: 803a2b541c754344396a80747da7a654, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582924247164111363, guid: 803a2b541c754344396a80747da7a654, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.42
+      value: -1.72
       objectReference: {fileID: 0}
     - target: {fileID: 1582924247164111363, guid: 803a2b541c754344396a80747da7a654, type: 3}
       propertyPath: m_LocalRotation.w
@@ -188,7 +196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3065056943633884024, guid: 803a2b541c754344396a80747da7a654, type: 3}
       propertyPath: sceneLoadDelay
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3065056943633884024, guid: 803a2b541c754344396a80747da7a654, type: 3}
       propertyPath: explosionParticleSystems.Array.size
@@ -207,8 +215,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8758443361404218117}
     - target: {fileID: 3434562554891460566, guid: 803a2b541c754344396a80747da7a654, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3434562554891460566, guid: 803a2b541c754344396a80747da7a654, type: 3}
       propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603539956168603304, guid: 803a2b541c754344396a80747da7a654, type: 3}
+      propertyPath: looping
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3603539956168603304, guid: 803a2b541c754344396a80747da7a654, type: 3}
       propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar

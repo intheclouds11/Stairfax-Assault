@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 36f3cf6ec92925f428811c139abfb8a0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -129,3 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b80b348cf138d384aa63233e283ea5e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathVFX: {fileID: 387986309424486793, guid: 0779995f0a46b9e41a05a9fe02eb0fd1, type: 3}
+  parent: {fileID: 0}
+  killScoreAmount: 10
+  enemyHP: 3
