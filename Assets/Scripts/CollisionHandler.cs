@@ -11,8 +11,8 @@ public class CollisionHandler : MonoBehaviour
     private bool hasDied;
     [SerializeField] private float sceneLoadDelay = 2f;
     [SerializeField] private ParticleSystem[] explosionParticleSystems;
-    [SerializeField] private int playerHealth = 100;
-    [SerializeField] private TextMeshProUGUI playerHealthUI;
+    [SerializeField] public int playerHealth = 100;
+    [SerializeField] public TextMeshProUGUI playerHealthUI;
 
     private void Start()
     {

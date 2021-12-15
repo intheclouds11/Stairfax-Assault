@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Max vertical position of ship")] [SerializeField]
     float yMaxRange = 10f;
 
-    [SerializeField] private ParticleSystem[] laserParticleSystems;
+    [SerializeField] public List<ParticleSystem> laserParticleSystems;
     
     private void OnEnable()
     {

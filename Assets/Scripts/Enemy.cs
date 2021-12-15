@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     {
         scoreManager = FindObjectOfType<ScoreManager>();
         defaultEnemyColor = GetComponent<Renderer>().material.color;
-        parentGameObjectTransform = GameObject.FindWithTag("SpawnAtRuntime").transform;
+        parentGameObjectTransform = GameObject.FindWithTag("Spawn At Runtime").transform;
     }
 
     private void OnParticleCollision(GameObject other)
