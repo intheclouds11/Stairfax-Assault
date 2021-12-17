@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
 
     private void ProcessHit()
     {
-        GetComponent<Renderer>().material.color = Color.red;
+        GetComponent<Renderer>().material.color = Color.white;
         Invoke("ReturnToDefaultColor", .1f);
         enemyHP--;
     }

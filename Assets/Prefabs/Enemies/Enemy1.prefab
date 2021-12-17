@@ -221,7 +221,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathVFX: {fileID: 387986309424486793, guid: 0779995f0a46b9e41a05a9fe02eb0fd1, type: 3}
-  parent: {fileID: 0}
   killScoreAmount: 10
   enemyHP: 5
 --- !u!54 &399007737103201250
