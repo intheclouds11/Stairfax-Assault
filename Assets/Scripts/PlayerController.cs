@@ -86,7 +86,6 @@ public class PlayerController : MonoBehaviour
 
         fireVR = gameplayActionMap.FindAction("Activate");
         fireVR.performed += ProcessFiring;
-        fireVR.canceled += ProcessFiring;
         fireVR.Enable();
     }
 
@@ -107,7 +106,6 @@ public class PlayerController : MonoBehaviour
 
         fireNonVR = gameplayActionMap.FindAction("Fire");
         fireNonVR.performed += ProcessFiring;
-        fireNonVR.canceled += ProcessFiring;
         fireNonVR.Enable();
     }
 
