@@ -10,9 +10,20 @@ public class PlayerController : MonoBehaviour
     private float xControl, yControl;
 
     [Header("Control Inputs")] [SerializeField]
-    InputAction movement;
+    InputActionAsset playerControlsNonVR;
 
-    [SerializeField] InputAction fire;
+    InputAction movementNonVR;
+
+    InputAction fireNonVR;
+
+    // For VR controls
+    [Header("VR Control Inputs")] [SerializeField]
+    InputActionAsset playerControlsVR;
+
+    InputAction movementVR;
+
+    InputAction fireVR;
+    //
 
     [Header("Control Scaling")] [Tooltip("How fast ship moves side-to-side")] [SerializeField]
     float xMovementScale = 20f;
@@ -51,62 +62,74 @@ public class PlayerController : MonoBehaviour
     float yMaxRange = 10f;
 
     [SerializeField] public List<ParticleSystem> laserParticleSystems;
-    
-    private void OnEnable()
-    {
-        movement.Enable();
-        fire.Enable();
-    }
 
-    private void OnDisable()
+
+    private void Start()
     {
-        movement.Disable();
-        fire.Disable();
+        EnableVRControls();
+        EnableNonVRControls();
     }
 
     void Update()
     {
         ProcessTranslation();
         ProcessRotation();
-        ProcessFiring();
     }
 
-    private void ProcessFiring()
+    private void EnableVRControls()
     {
-        if (Keyboard.current[Key.Space].wasPressedThisFrame)
-        {
-            ActivateLasers();
-        }
+        var gameplayActionMap = playerControlsVR.FindActionMap("XRI LeftHand");
+        movementVR = gameplayActionMap.FindAction("Move");
+        movementVR.performed += ProcessMovementInputVR;
+        movementVR.canceled += ProcessMovementInputVR;
+        movementVR.Enable();
+
+        fireVR = gameplayActionMap.FindAction("Activate");
+        fireVR.performed += ProcessFiring;
+        fireVR.canceled += ProcessFiring;
+        fireVR.Enable();
+    }
+
+    private void ProcessMovementInputVR(InputAction.CallbackContext context)
+    {
+        xControl = context.ReadValue<Vector2>().x;
+        yControl = context.ReadValue<Vector2>().y;
+    }
+
+    private void EnableNonVRControls()
+    {
+        var gameplayActionMap = playerControlsNonVR.FindActionMap("Default");
         
-        // else
-        // {
-        //     DeactivateLasers();
-        // }
+        movementNonVR = gameplayActionMap.FindAction("Movement");
+        movementNonVR.performed += ProcessMovementInputNonVR;
+        movementNonVR.canceled += ProcessMovementInputNonVR;
+        movementNonVR.Enable();
+
+        fireNonVR = gameplayActionMap.FindAction("Fire");
+        fireNonVR.performed += ProcessFiring;
+        fireNonVR.canceled += ProcessFiring;
+        fireNonVR.Enable();
     }
 
-    private void ActivateLasers()
+    private void ProcessMovementInputNonVR(InputAction.CallbackContext context)
     {
-        foreach (ParticleSystem laserParticleSystem in laserParticleSystems)
-        {
-            laserParticleSystem.Play();
-        }
-
-        // Alternative way to enable particles (particles always playing just not emitting)
-        // foreach (ParticleSystem laserParticleSystem in laserParticleSystems)
-        // {
-        //     var emissionModule = laserParticleSystem.emission;
-        //     emissionModule.enabled = toggle;
-        // }
+        xControl = context.ReadValue<Vector2>().x;
+        yControl = context.ReadValue<Vector2>().y;
     }
 
-    // private void DeactivateLasers()
-    // {
-    //     foreach (ParticleSystem laserParticleSystem in laserParticleSystems)
-    //     {
-    //         laserParticleSystem.Stop();
-    //
-    //     }
-    // }
+    private void ProcessTranslation()
+    {
+        float xOffset = xControl * xMovementScale * Time.deltaTime;
+        float rawXPos = transform.localPosition.x + xOffset;
+        float clampedXPos = Mathf.Clamp(rawXPos, xMinRange, xMaxRange);
+
+        float yOffset = yControl * yMovementScale * Time.deltaTime;
+        float rawYPos = transform.localPosition.y + yOffset;
+        float clampedYPos = Mathf.Clamp(rawYPos, yMinRange, yMaxRange);
+
+        transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
+    }
+
 
     void ProcessRotation()
     {
@@ -124,25 +147,24 @@ public class PlayerController : MonoBehaviour
         Quaternion targetRotation = Quaternion.Euler(pitch, yaw, roll);
         transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, rotationSpeed);
     }
-
-    private void ProcessTranslation()
+    
+    private void ProcessFiring(InputAction.CallbackContext context)
     {
-        // OLD INPUT SYSTEM - interpolates between -1, 0 ,and +1
-        // xControl = Input.GetAxis("Horizontal");
-        // yControl = Input.GetAxis("Vertical");
+        ActivateLasers();
+    }
 
-        // NEW INPUT SYSTEM - instantaneously jumps between -1, 0, and +1
-        xControl = movement.ReadValue<Vector2>().x;
-        yControl = movement.ReadValue<Vector2>().y;
+    private void ActivateLasers()
+    {
+        foreach (ParticleSystem laserParticleSystem in laserParticleSystems)
+        {
+            laserParticleSystem.Play();
+        }
 
-        float xOffset = xControl * xMovementScale * Time.deltaTime;
-        float rawXPos = transform.localPosition.x + xOffset;
-        float clampedXPos = Mathf.Clamp(rawXPos, xMinRange, xMaxRange);
-
-        float yOffset = yControl * yMovementScale * Time.deltaTime;
-        float rawYPos = transform.localPosition.y + yOffset;
-        float clampedYPos = Mathf.Clamp(rawYPos, yMinRange, yMaxRange);
-
-        transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
+        // Alternate way to enable particles (particles always playing just not emitting)
+        // foreach (ParticleSystem laserParticleSystem in laserParticleSystems)
+        // {
+        //     var emissionModule = laserParticleSystem.emission;
+        //     emissionModule.enabled = toggle;
+        // }
     }
 }
