@@ -14970,7 +14970,7 @@ MonoBehaviour:
   yMovementScale: 25
   positionPitchScale: -2
   controlPitchScale: -15
-  positionYawScale: 3
+  positionYawScale: 2
   controlYawScale: 5
   controlRollScale: -25
   rotationSpeed: 1

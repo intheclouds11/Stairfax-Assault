@@ -78,13 +78,16 @@ public class PlayerController : MonoBehaviour
 
     private void EnableVRControls()
     {
-        var gameplayActionMap = playerControlsVR.FindActionMap("XRI LeftHand");
-        movementVR = gameplayActionMap.FindAction("Move");
+        var gameplayActionMapLH = playerControlsVR.FindActionMap("XRI LeftHand");
+        var gameplayActionMapRH = playerControlsVR.FindActionMap("XRI RightHand");
+
+        movementVR = gameplayActionMapLH.FindAction("Move");
         movementVR.performed += ProcessMovementInputVR;
         movementVR.canceled += ProcessMovementInputVR;
         movementVR.Enable();
 
-        fireVR = gameplayActionMap.FindAction("Activate");
+        fireVR = gameplayActionMapLH.FindAction("Activate");
+        fireVR = gameplayActionMapRH.FindAction("Activate");
         fireVR.performed += ProcessFiring;
         fireVR.Enable();
     }
@@ -98,7 +101,7 @@ public class PlayerController : MonoBehaviour
     private void EnableNonVRControls()
     {
         var gameplayActionMap = playerControlsNonVR.FindActionMap("Default");
-        
+
         movementNonVR = gameplayActionMap.FindAction("Movement");
         movementNonVR.performed += ProcessMovementInputNonVR;
         movementNonVR.canceled += ProcessMovementInputNonVR;
@@ -145,7 +148,7 @@ public class PlayerController : MonoBehaviour
         Quaternion targetRotation = Quaternion.Euler(pitch, yaw, roll);
         transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, rotationSpeed);
     }
-    
+
     private void ProcessFiring(InputAction.CallbackContext context)
     {
         ActivateLasers();
