@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
 
     InputAction movementVR;
 
-    InputAction fireVR;
+    InputAction fireVRLH;
+    InputAction fireVRRH;
     //
 
     [Header("Control Scaling")] [Tooltip("How fast ship moves side-to-side")] [SerializeField]
@@ -86,10 +87,12 @@ public class PlayerController : MonoBehaviour
         movementVR.canceled += ProcessMovementInputVR;
         movementVR.Enable();
 
-        fireVR = gameplayActionMapLH.FindAction("Activate");
-        fireVR = gameplayActionMapRH.FindAction("Activate");
-        fireVR.performed += ProcessFiring;
-        fireVR.Enable();
+        fireVRLH = gameplayActionMapLH.FindAction("Activate");
+        fireVRRH = gameplayActionMapRH.FindAction("Activate");
+        fireVRLH.performed += ProcessFiring;
+        fireVRRH.performed += ProcessFiring;
+        fireVRLH.Enable();
+        fireVRRH.Enable();
     }
 
     private void ProcessMovementInputVR(InputAction.CallbackContext context)
