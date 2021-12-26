@@ -1,7 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 public class Enemy : MonoBehaviour
 {
@@ -19,7 +17,7 @@ public class Enemy : MonoBehaviour
         defaultEnemyColor = GetComponent<Renderer>().material.color;
         parentGameObjectTransform = GameObject.FindWithTag("Spawn At Runtime").transform;
     }
-
+    
     private void OnParticleCollision(GameObject other)
     {
         ProcessHit();

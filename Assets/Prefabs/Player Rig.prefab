@@ -5508,7 +5508,7 @@ GameObject:
   - component: {fileID: 208906573049153831}
   - component: {fileID: 7514559301379196758}
   - component: {fileID: 6484743661749405161}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15559,7 +15559,7 @@ GameObject:
   - component: {fileID: 2201283733767141708}
   - component: {fileID: 131498424}
   - component: {fileID: 4810763999660236863}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16250,7 +16250,7 @@ GameObject:
   - component: {fileID: 6087990478420596372}
   - component: {fileID: 4721214428494201439}
   - component: {fileID: 364699051421581593}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Start Level Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26181,12 +26181,52 @@ PrefabInstance:
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4001641326447347154, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_ValidColorGradient.key0.g
+      value: 0.2472372
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641326447347154, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_ValidColorGradient.key0.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641326447347154, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_ValidColorGradient.key1.g
+      value: 0.2509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641326447347154, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_ValidColorGradient.key1.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641326447347154, guid: 1d78651432aae1943be9024da41933ad, type: 3}
       propertyPath: m_InvalidColorGradient.key0.a
-      value: 0.53333336
+      value: 0.38039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641326447347154, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_InvalidColorGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641326447347154, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_InvalidColorGradient.key0.g
+      value: 0.24705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641326447347154, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_InvalidColorGradient.key0.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4001641326447347154, guid: 1d78651432aae1943be9024da41933ad, type: 3}
       propertyPath: m_InvalidColorGradient.key1.a
-      value: 0.5529412
+      value: 0.38039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641326447347154, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_InvalidColorGradient.key1.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641326447347154, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_InvalidColorGradient.key1.g
+      value: 0.24705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641326447347154, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_InvalidColorGradient.key1.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4001641326447347154, guid: 1d78651432aae1943be9024da41933ad, type: 3}
       propertyPath: m_OverrideInteractorLineLength
@@ -26196,17 +26236,61 @@ PrefabInstance:
       propertyPath: m_Parameters.widthMultiplier
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 4001641326447347156, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_RaycastMask.m_Bits
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 4001641327560849757, guid: 1d78651432aae1943be9024da41933ad, type: 3}
       propertyPath: m_LineWidth
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4001641327560849757, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_ValidColorGradient.key0.g
+      value: 0.2472372
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641327560849757, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_ValidColorGradient.key0.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641327560849757, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_ValidColorGradient.key1.g
+      value: 0.2509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641327560849757, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_ValidColorGradient.key1.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641327560849757, guid: 1d78651432aae1943be9024da41933ad, type: 3}
       propertyPath: m_InvalidColorGradient.key0.a
-      value: 0.53333336
+      value: 0.38039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641327560849757, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_InvalidColorGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641327560849757, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_InvalidColorGradient.key0.g
+      value: 0.24705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641327560849757, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_InvalidColorGradient.key0.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4001641327560849757, guid: 1d78651432aae1943be9024da41933ad, type: 3}
       propertyPath: m_InvalidColorGradient.key1.a
-      value: 0.5529412
+      value: 0.38039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641327560849757, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_InvalidColorGradient.key1.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641327560849757, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_InvalidColorGradient.key1.g
+      value: 0.24705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641327560849757, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_InvalidColorGradient.key1.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4001641327560849757, guid: 1d78651432aae1943be9024da41933ad, type: 3}
       propertyPath: m_OverrideInteractorLineLength
@@ -26215,6 +26299,10 @@ PrefabInstance:
     - target: {fileID: 4001641327560849758, guid: 1d78651432aae1943be9024da41933ad, type: 3}
       propertyPath: m_Parameters.widthMultiplier
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001641327560849759, guid: 1d78651432aae1943be9024da41933ad, type: 3}
+      propertyPath: m_RaycastMask.m_Bits
+      value: 32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d78651432aae1943be9024da41933ad, type: 3}
@@ -26255,7 +26343,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 17a2cc8572469594c8c53dc61b2ffb0c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.719
   m_Pitch: 1
   Loop: 1
   Mute: 0
