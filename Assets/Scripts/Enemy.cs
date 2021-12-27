@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private GameObject deathVFX;
+    [SerializeField] private GameObject deathFX;
+    [SerializeField] private GameObject hitFX;
     private Transform parentGameObjectTransform;
     [SerializeField] private int killScoreAmount = 10;
     private ScoreManager scoreManager;
@@ -31,6 +32,8 @@ public class Enemy : MonoBehaviour
     {
         GetComponent<Renderer>().material.color = Color.white;
         Invoke("ReturnToDefaultColor", .1f);
+        GameObject fx = Instantiate(hitFX, transform.position, Quaternion.identity);
+        fx.transform.parent = parentGameObjectTransform; // cleaner Hierarchy
         enemyHP--;
     }
 
@@ -42,8 +45,8 @@ public class Enemy : MonoBehaviour
     private void DestroyEnemy()
     {
         scoreManager.IncreaseScore(killScoreAmount);
-        GameObject vfx = Instantiate(deathVFX, transform.position, Quaternion.identity);
-        vfx.transform.parent = parentGameObjectTransform; // cleaner Hierarchy
+        GameObject fx = Instantiate(deathFX, transform.position, Quaternion.identity);
+        fx.transform.parent = parentGameObjectTransform; // cleaner Hierarchy
         Destroy(this.gameObject);
     }
 }

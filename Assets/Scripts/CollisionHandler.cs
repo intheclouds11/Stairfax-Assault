@@ -35,35 +35,21 @@ public class CollisionHandler : MonoBehaviour
 
         if (playerHealth <= 0)
         {
-            if (other.gameObject.CompareTag("Enemy") && !hasDied)
+            if (!hasDied)
             {
                 Debug.Log("Collided with enemy");
                 hasDied = true;
                 playerHealthUI.text = $"Health: {playerHealth}";
+
                 GetComponent<Rigidbody>().useGravity = true;
                 GetComponent<MeshRenderer>().enabled = false;
+                GetComponent<PlayerController>().enabled = false;
+
                 foreach (ParticleSystem explosionParticleSystem in explosionParticleSystems)
                 {
                     explosionParticleSystem.Play();
                 }
 
-                GetComponent<PlayerController>().enabled = false;
-                Invoke("ReloadScene", sceneLoadDelay);
-            }
-
-            if (other.gameObject.CompareTag("Obstacle") && !hasDied)
-            {
-                Debug.Log("Collided with obstacle");
-                hasDied = true;
-                playerHealthUI.text = $"Health: {playerHealth}";
-                GetComponent<Rigidbody>().useGravity = true;
-                GetComponent<MeshRenderer>().enabled = false;
-                foreach (ParticleSystem explosionParticleSystem in explosionParticleSystems)
-                {
-                    explosionParticleSystem.Play();
-                }
-
-                GetComponent<PlayerController>().enabled = false;
                 Invoke("ReloadScene", sceneLoadDelay);
             }
         }

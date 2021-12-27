@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     InputAction movementVR;
 
     InputAction fireVRLH;
+
     InputAction fireVRRH;
     //
 
@@ -61,11 +62,18 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] public List<ParticleSystem> laserParticleSystems;
 
+    private AudioSource _laserSfxAudioSource;
+
+    [SerializeField] private AudioClip _laserSfxClip;
+
+    [SerializeField] private float _laserSfxDelay = 0.2f;
+
 
     private void Start()
     {
         EnableVRControls();
         EnableNonVRControls();
+        _laserSfxAudioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -151,21 +159,11 @@ public class PlayerController : MonoBehaviour
 
     private void ProcessFiring(InputAction.CallbackContext context)
     {
-        ActivateLasers();
-    }
-
-    private void ActivateLasers()
-    {
         foreach (ParticleSystem laserParticleSystem in laserParticleSystems)
         {
             laserParticleSystem.Play();
         }
-
-        // Alternate way to enable particles (particles always playing just not emitting)
-        // foreach (ParticleSystem laserParticleSystem in laserParticleSystems)
-        // {
-        //     var emissionModule = laserParticleSystem.emission;
-        //     emissionModule.enabled = toggle;
-        // }
+        _laserSfxAudioSource.PlayOneShot(_laserSfxClip);
+        _laserSfxAudioSource.PlayDelayed(_laserSfxDelay);
     }
 }

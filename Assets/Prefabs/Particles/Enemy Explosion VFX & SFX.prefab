@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3036454458389268077
+--- !u!1 &387986309424486793
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8109156337451166683}
-  - component: {fileID: -8940175922339169547}
-  - component: {fileID: 4489859671766140127}
-  - component: {fileID: 8528088660338268880}
+  - component: {fileID: 387986309424486794}
+  - component: {fileID: 2817366991771247242}
+  - component: {fileID: 387986309424486796}
+  - component: {fileID: 387986309424486795}
+  - component: {fileID: 5495572536705286136}
   m_Layer: 0
-  m_Name: Explosion short delay
+  m_Name: Enemy Explosion VFX & SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8109156337451166683
+--- !u!4 &387986309424486794
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3036454458389268077}
+  m_GameObject: {fileID: 387986309424486793}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.27, y: -0.36, z: -2.23}
+  m_LocalPosition: {x: 0, y: 0, z: -2.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!82 &-8940175922339169547
+--- !u!82 &2817366991771247242
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3036454458389268077}
+  m_GameObject: {fileID: 387986309424486793}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 80cb4701ff275704bb7ca366db72c76a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.54
+  m_Volume: 0.86
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -56,7 +57,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 300
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -64,23 +65,23 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.0033333334
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      value: 0.89551544
+      inSlope: -0.17403007
+      outSlope: -0.17403007
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0.22764169
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -129,15 +130,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!198 &4489859671766140127
+--- !u!198 &387986309424486796
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3036454458389268077}
+  m_GameObject: {fileID: 387986309424486793}
   serializedVersion: 8
-  lengthInSec: 0.3
+  lengthInSec: 0.2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -146,13 +147,13 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0.2
+    scalar: 0
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -265,8 +266,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 100
-      minScalar: 10
+      scalar: 50
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -319,7 +320,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.97471845, g: 1, b: 0.40943396, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.7179265, g: 1, b: 0, a: 1}
@@ -1069,11 +1070,11 @@ ParticleSystem:
     m_BurstCount: 1
     m_Bursts:
     - serializedVersion: 2
-      time: 0.2
+      time: 0
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 250
+        scalar: 200
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -1460,7 +1461,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 0.13885632, b: 0, a: 1}
-        key1: {r: 1, g: 0.8796916, b: 0, a: 1}
+        key1: {r: 1, g: 0.9327932, b: 0.44716978, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -4894,14 +4895,14 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &8528088660338268880
+--- !u!199 &387986309424486795
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3036454458389268077}
+  m_GameObject: {fileID: 387986309424486793}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 0
@@ -4962,3 +4963,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &5495572536705286136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387986309424486793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdbd2959076bb5a41a3cfebcb199fbbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyDelay: 2
