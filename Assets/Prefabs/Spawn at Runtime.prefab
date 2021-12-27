@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7954784372218815150}
   m_Layer: 0
   m_Name: Spawn at Runtime
-  m_TagString: Untagged
+  m_TagString: Spawn At Runtime
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

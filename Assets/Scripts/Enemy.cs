@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        scoreManager = FindObjectOfType<ScoreManager>();
+        scoreManager = FindObjectOfType<ScoreManager>(); // This is an example using FindObjectOfType, could also use SerializeField.
         defaultEnemyColor = GetComponent<Renderer>().material.color;
         parentGameObjectTransform = GameObject.FindWithTag("Spawn At Runtime").transform;
     }
