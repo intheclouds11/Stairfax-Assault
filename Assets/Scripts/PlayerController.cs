@@ -62,18 +62,18 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] public List<ParticleSystem> laserParticleSystems;
 
-    private AudioSource _laserSfxAudioSource;
+    private AudioSource _laserSFX;
 
-    [SerializeField] private AudioClip _laserSfxClip;
+    [SerializeField] private AudioClip _laserSFXClip;
 
-    [SerializeField] private float _laserSfxDelay = 0.2f;
+    [SerializeField] private float _laserSFXDelay = 0.2f;
 
 
     private void Start()
     {
         EnableVRControls();
         EnableNonVRControls();
-        _laserSfxAudioSource = GetComponent<AudioSource>();
+        _laserSFX = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour
         {
             laserParticleSystem.Play();
         }
-        _laserSfxAudioSource.PlayOneShot(_laserSfxClip);
-        _laserSfxAudioSource.PlayDelayed(_laserSfxDelay);
+        _laserSFX.PlayOneShot(_laserSFXClip);
+        _laserSFX.PlayDelayed(_laserSFXDelay);
     }
 }

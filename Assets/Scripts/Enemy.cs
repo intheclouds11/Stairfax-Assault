@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     private void ProcessHit()
     {
         GetComponent<Renderer>().material.color = Color.white;
-        Invoke("ReturnToDefaultColor", .1f);
+        Invoke(nameof(ReturnToDefaultColor), .1f);
         GameObject fx = Instantiate(hitFX, transform.position, Quaternion.identity);
         fx.transform.parent = parentGameObjectTransform; // cleaner Hierarchy
         enemyHP--;

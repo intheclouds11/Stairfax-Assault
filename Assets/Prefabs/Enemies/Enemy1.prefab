@@ -134,8 +134,8 @@ GameObject:
   - component: {fileID: 4894919789274491716}
   - component: {fileID: 8377227506737177825}
   - component: {fileID: 6027244848474722347}
-  - component: {fileID: 8590396097553218845}
   - component: {fileID: 399007737103201250}
+  - component: {fileID: 8590396097553218845}
   - component: {fileID: 2088895208}
   m_Layer: 0
   m_Name: Enemy1
@@ -209,22 +209,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8590396097553218845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5234853138590872062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b80b348cf138d384aa63233e283ea5e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathFX: {fileID: 387986309424486793, guid: 0779995f0a46b9e41a05a9fe02eb0fd1, type: 3}
-  hitFX: {fileID: 387986309424486793, guid: 80ef5be285c1eac439a977eff09759a6, type: 3}
-  killScoreAmount: 50
-  enemyHP: 4
 --- !u!54 &399007737103201250
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -241,6 +225,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8590396097553218845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5234853138590872062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80b348cf138d384aa63233e283ea5e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathFX: {fileID: 387986309424486793, guid: 0779995f0a46b9e41a05a9fe02eb0fd1, type: 3}
+  hitFX: {fileID: 387986309424486793, guid: 80ef5be285c1eac439a977eff09759a6, type: 3}
+  killScoreAmount: 50
+  enemyHP: 4
 --- !u!82 &2088895208
 AudioSource:
   m_ObjectHideFlags: 0
