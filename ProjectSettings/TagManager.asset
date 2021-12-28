@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Obstacle
   - Spawn At Runtime
+  - Pickup
   layers:
   - Default
   - TransparentFX
