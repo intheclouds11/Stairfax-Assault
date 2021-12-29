@@ -2255,7 +2255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!182 &1995608726
 WindZone:
   m_ObjectHideFlags: 0
@@ -2353,6 +2353,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Post Processing
       objectReference: {fileID: 0}
+    - target: {fileID: 2148367114937859089, guid: 47750e43448bd2a42b4c5863f97fa0f4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7098475636842862790, guid: 47750e43448bd2a42b4c5863f97fa0f4, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -2398,8 +2402,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7297409493146239752, guid: 47750e43448bd2a42b4c5863f97fa0f4, type: 3}
+      propertyPath: weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297409493146239752, guid: 47750e43448bd2a42b4c5863f97fa0f4, type: 3}
+      propertyPath: isGlobal
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297409493146239752, guid: 47750e43448bd2a42b4c5863f97fa0f4, type: 3}
+      propertyPath: priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297409493146239752, guid: 47750e43448bd2a42b4c5863f97fa0f4, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297409493146239752, guid: 47750e43448bd2a42b4c5863f97fa0f4, type: 3}
+      propertyPath: blendDistance
+      value: 305.55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47750e43448bd2a42b4c5863f97fa0f4, type: 3}
@@ -2647,6 +2667,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 279536565}
     - target: {fileID: 2389701606180340229, guid: c59d0c9e4e9cbc141ab316b97ee0dcd2, type: 3}
+      propertyPath: LightsModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389701606180340229, guid: c59d0c9e4e9cbc141ab316b97ee0dcd2, type: 3}
       propertyPath: LightsModule.rangeCurve.scalar
       value: 0.5
       objectReference: {fileID: 0}
@@ -2716,6 +2740,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3608466431267979888, guid: c59d0c9e4e9cbc141ab316b97ee0dcd2, type: 3}
       propertyPath: antialiasingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3608466431267979888, guid: c59d0c9e4e9cbc141ab316b97ee0dcd2, type: 3}
+      propertyPath: volumeLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359960519876914043, guid: c59d0c9e4e9cbc141ab316b97ee0dcd2, type: 3}
+      propertyPath: LightsModule.enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4359960519876914043, guid: c59d0c9e4e9cbc141ab316b97ee0dcd2, type: 3}
